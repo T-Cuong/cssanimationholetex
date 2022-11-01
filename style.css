@@ -1,0 +1,116 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+}
+
+.blue {
+    /* background-color: blue; */
+    /* transition-property: background-color, width;khai bao nhung thuoc tinh ta muon ap dung transition */
+    /* transition-duration: 2s, 4s;khai bao mot khoang thoi gian giua hai lan thay doi, 2s la cua bacground-color, 4s la cua width
+    bay h neu ta co them mot thuoc tinh o transition-property khong them thuoc tin nao o transition-duration thi transition-duration cua
+    thuoc tinh thu 3 se nhay ve 2s, trong truoc hop ta co nhieu duration hon property thi nhung duration du se bi bo di*/
+    /* transition-delay: 2000ms;sau khoang thoi gian 2s no moi ap dung transition-duration */
+    /* transition-timing-function:ease-in-out; tao mot hieu ung trong qua trinh chuyen doi, ease-in-out cho khoi dau cham va ket thuc cham */
+    /* transition: background-color 2s ease-in-out, width 4s ease-in;*day la viet tat cho property, duration, timing-function */
+    /* transition: all 2s ease-in-out; all co nghia la ap dung cho tat ca nhung thuoc tinh co the animation; */
+    /*animation : khong can hover vao ui cac thuoc tinh cung tu dong thuc hien animation*/
+    position: relative;
+    /* animation-name: loadingABC, move;
+    animation-duration: 2s;
+    animation-iteration-count: infinite, 3;/*khai bao so lan animation thuc hien,neu khai bao infinite thi no lap lai mai mai*/
+    /* animation-direction: alternate;/*khi thay doi tu blue sang brown thi no se ko bien doi dot ngot tro lai gia tri blue  */
+    /* ban dau ma no se ap dung animation nguoc lai va bien doi tu tu  */
+    /* animation-delay: 2s;delay sau bao lau, sau 2s moi ap  dung cac thuoc tinh tren */
+    /* animation-timing-function: ease-in-out; */
+    animation: loadingABC 2s infinite alternate, move 4s infinite alternate;/*viet tat cua cac thuoc tinh tren*/
+}
+
+@keyframes loadingABC {
+ /* 0% {
+
+ }
+ 100% {
+
+ } */
+ /* from {from la ban dau
+    background-color: blue;
+ } 
+ to {to la cuoi cung
+    background-color: brown;
+    width: 150px;
+    height: 150px;
+ } */
+   0% {
+    background-color: blue;
+ } 
+    50% {/*animation-duration la thoi gian bien doi o tren ta set la 2s vay 50% la 1s*/
+        background-color: yellow;
+        width: 200px;
+        height: 200px;
+    }
+   100% {
+    background-color: brown;
+    width: 150px;
+    height: 150px;
+ }
+}
+@keyframes move {
+    from {
+        left: 0;
+    } to {
+        left: 20px;
+    }
+    
+}
+
+/*khi hover thi background-color chuyen tu mau xanh sang brown*/
+/* .blue:hover {
+    width: 250px;
+    background-color: brown;    
+}
+
+.yellow {
+    background-color: yellow; 
+} */
+
+.menu li {
+    display: inline-block;
+    position: relative;
+}
+
+.menu li::after {
+    width: 0;
+    height: 4px;
+    background-color: black;
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transition: width 1s ;
+}
+
+.menu li:hover::after {
+    width: 100%;
+}
+
+.loading {
+    width: 20px;
+    height: 20px;
+    border: 5px solid black;
+    border-top-color:red;
+    border-right-color:burlywood;
+    border-bottom-color: chartreuse;
+    border-radius: 50%;
+    animation: circle-loading 1s infinite linear;/*linear de no xoay tron deu day la mot thuoc tinh cua animation-timing-function*/
+}
+
+@keyframes circle-loading {
+    to {
+        transform: rotate(360deg);
+    }
+}
